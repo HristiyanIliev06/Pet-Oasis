@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     
     'index',
     'accounts',
+    'about_us',
+    'blog_and_news',
+    'facilities',
+
+    
 ]
 
 MIDDLEWARE = [
