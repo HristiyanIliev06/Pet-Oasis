@@ -2,10 +2,10 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import  PermissionsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import MinValueValidator
 
 from accounts.managers import AppUserManager
 
-#AbstractUser, User,
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
@@ -35,7 +35,7 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     objects = AppUserManager()
 
     EMAIL_FIELD = "email"
-    USERNAME_FIELD = 'email'  # USERNAME_FIELD means the first credential in our auth
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
@@ -47,27 +47,27 @@ class Profile(models.Model):
     user = models.OneToOneField(
         AppUser,
         on_delete=models.CASCADE,
+        related_name='profile'
     )
-
-    age = models.IntegerField()
 
     first_name = models.CharField(
         max_length=30,
+        null = False,
+        blank=False
     )
 
     last_name = models.CharField(
-        max_length=30,
+        max_length=30, 
+        null = False,
+        blank=False
     )
 
+    age = models.IntegerField(
+        null = False,
+        blank=False,
+        validators=[MinValueValidator(18,
+        message="Sorry! You are not mature enough to use our pet services!")]
+    )
+    
+    account_picture = models.ImageField(null = True, blank=True)
 
-
-# class CustomProxyModel(User):
-#     def custom_method(self):
-#         return f"This is a custom method"
-#
-#     class Meta:
-#         proxy = True
-#
-#
-# print(CustomUser.custom_method())
-# print(CustomProxyModel.custom_method())
