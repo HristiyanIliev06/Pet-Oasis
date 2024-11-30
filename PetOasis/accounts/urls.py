@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 from accounts import views
 
@@ -10,3 +12,7 @@ urlpatterns = [
         path('edit/', views.edit_account, name = 'edit_account'),
         path('delete/', views.delete_account, name = 'delete_account'),])),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

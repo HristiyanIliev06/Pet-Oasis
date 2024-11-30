@@ -1,11 +1,12 @@
 from django.db import models
 from accounts.models import Profile
+from django.core.validators import MinValueValidator
 
 class Pet(models.Model):
     
     SPECIES_CHOICES = [
-        ('dog', 'dog'),
-        ('cat', 'cat'),
+        ('Dog', 'Dog'),
+        ('Cat', 'Cat'),
     ]
     
     name = models.CharField(
@@ -22,9 +23,18 @@ class Pet(models.Model):
         blank=False,
         null=False)
     
-    weight = models.PositiveIntegerField(
+    weight = models.FloatField(
         blank=False,
-        null=False)
+        null=False,
+        validators = [
+            MinValueValidator
+            (0,
+             message = "It's not possible for your pet to weigh less than 0 kg!",)
+            ]
+        )
+    
+    image = models.ImageField(
+        upload_to='profile_pics/')
     
     owner = models.ForeignKey(
         Profile,

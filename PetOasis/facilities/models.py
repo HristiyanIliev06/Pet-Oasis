@@ -4,9 +4,7 @@ from validators import pet_hotel_and_shelter_name_validator as phsnv
 from pets.models import Pet
 
 
-
 class PetHotel(models.Model):
-    
     name = models.CharField(
         max_length=20,
         null = False,
@@ -35,15 +33,21 @@ class PetHotel(models.Model):
     
     description = models.TextField()
     
+    favourite = models.BooleanField()
+    
+    to_visit = models.BooleanField(
+        verbose_name='to-visit'
+        )
+    
     def __str__(self):
         return self.name
     
-    
-class Shelter(PetHotel):
+ 
+class Shelter(models.Model):
     
     PET_SECTIONS = [
-        ('dog', 'dog'),
-        ('cat', 'cat'),
+        ('Dog', 'Dog'),
+        ('Cat', 'Cat'),
     ]
     
     pethotel = models.ForeignKey(                   #Might require extending
@@ -56,7 +60,7 @@ class Shelter(PetHotel):
     )
     
     def __str__(self):
-        return f'{self.name}, {self.pethotel.name}' 
+        return f'{self.pet_section}, {self.pethotel.name}' 
     
        
 class Booking(models.Model):

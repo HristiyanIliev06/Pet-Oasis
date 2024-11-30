@@ -35,8 +35,8 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     objects = AppUserManager()
 
     EMAIL_FIELD = "email"
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ["username"]
+    USERNAME_FIELD = 'username'
+    #REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
         return self.email
@@ -69,5 +69,9 @@ class Profile(models.Model):
         message="Sorry! You are not mature enough to use our pet services!")]
     )
     
-    account_picture = models.ImageField(null = True, blank=True)
+    account_picture = models.ImageField(
+        upload_to='profile_pics/',
+        null = True,
+        blank=True
+        )
 
