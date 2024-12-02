@@ -1,0 +1,147 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, p {
+    margin: 0;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: 1pt;
+  }
+  
+  .search-and-login {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-and-login input {
+    padding: 5px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('hero-bg.jpg') no-repeat center/cover;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 250px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+  }
+  
+  .hero p {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  
+  /* Facilities Section */
+  .facilities {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .facility-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 100px 0;
+  }
+  
+  .facility-card {
+    background-color: #ffea8a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+  }
+  
+  .view-all-btn {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Quote Section */
+  .quote {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    background-color: white;
+  }
+  
+  .icons span {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  /* Feedback Section */
+  .feedback {
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  .feedback-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .feedback-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #ffe680;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .footer-logo img {
+    height: 60px;
+  }
+  
+  .footer-links, .footer-partner {
+    text-align: center;
+  }
+  
