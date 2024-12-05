@@ -61,28 +61,3 @@ class Shelter(models.Model):
     
     def __str__(self):
         return f'{self.pet_section}, {self.pethotel.name}' 
-    
-       
-class Booking(models.Model):
-    pet = models.ForeignKey(
-        Pet,
-        on_delete=models.CASCADE,
-        related_name='bookings'
-        )
-    
-    hotel = models.ForeignKey(
-        PetHotel,
-        on_delete=models.CASCADE,
-        related_name='bookings'
-        )
-    
-    check_in = models.DateField()
-    check_out = models.DateField()
-    
-    special_requests = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.pet.name} - {self.hotel.name}"
-    
-
-
