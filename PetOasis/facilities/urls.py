@@ -3,5 +3,6 @@ from facilities import views
 
 urlpatterns = [
     path('facilities/', include([
-        path('<city:slug>', views.show_a_facility_page_by_selected_city, name = 'facility')])),
+        path(' ', views.show_facilities_page, name = 'facilities'),
+        path('<slug:city>', views.show_a_facility_page_by_selected_city, name = 'facility')])),
 ]
