@@ -1,50 +1,51 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content%}
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Welcome to Pet Oasis</h1>
+  <p>
+    Facilities, bringing together shelters and pet hotels for your beloved
+    pet(s)
+  </p>
+</section>
 
-{% block content%}
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to Pet Oasis</h1>
-    <p>Facilities, bringing together shelters and pet hotels for your beloved pet(s).</p>
-  </section>
+<!-- Top Facilities -->
+<section class="facilities">
+  <h2>Our top 3 facilities</h2>
+  <p>Our best pet hotels and their accompanying shelters</p>
+  <div class="facility-cards">
+    <div class="facility-card">Sofia<br /><button>View</button></div>
+    <div class="facility-card">Plovdiv<br /><button>View</button></div>
+    <div class="facility-card">Varna<br /><button>View</button></div>
+  </div>
+  <button class="view-all-btn">VIEW ALL</button>
+</section>
 
-  <!-- Top Facilities -->
-  <section class="facilities">
-    <h2>Our top 3 facilities</h2>
-    <p>Our best pet hotels and their accompanying shelters</p>
-    <div class="facility-cards">
-      <div class="facility-card">Sofia<br><button>View</button></div>
-      <div class="facility-card">Plovdiv<br><button>View</button></div>
-      <div class="facility-card">Varna<br><button>View</button></div>
+<!-- Quote Section -->
+<section class="quote">
+  <p>“Care for every paw, home for every heart”</p>
+  <div class="icons">
+    <span>Care</span>
+    <span>Home</span>
+    <span>Peace</span>
+  </div>
+</section>
+
+<!-- Feedback Section -->
+<section class="feedback">
+  <h2>Our customers' feedback</h2>
+  <div class="feedback-cards">
+    <div class="feedback-card">
+      <img src="dog.jpg" alt="Dog feedback" />
+      <p>★★★★★</p>
     </div>
-    <button class="view-all-btn">VIEW ALL</button>
-  </section>
-
-  <!-- Quote Section -->
-  <section class="quote">
-    <p>“Care for every paw, home for every heart”</p>
-    <div class="icons">
-      <span>Care</span>
-      <span>Home</span>
-      <span>Peace</span>
+    <div class="feedback-card">
+      <img src="cat.jpg" alt="Cat feedback" />
+      <p>★★★★★</p>
     </div>
-  </section>
-
-  <!-- Feedback Section -->
-  <section class="feedback">
-    <h2>Our customers' feedback</h2>
-    <div class="feedback-cards">
-      <div class="feedback-card">
-        <img src="dog.jpg" alt="Dog feedback">
-        <p>★★★★★</p>
-      </div>
-      <div class="feedback-card">
-        <img src="cat.jpg" alt="Cat feedback">
-        <p>★★★★★</p>
-      </div>
-      <div class="feedback-card">
-        <img src="bird.jpg" alt="Bird feedback">
-        <p>★★★★★</p>
-      </div>
+    <div class="feedback-card">
+      <img src="bird.jpg" alt="Bird feedback" />
+      <p>★★★★★</p>
     </div>
-  </section>
-  {% endblock%}
+  </div>
+</section>
+{% endblock%}

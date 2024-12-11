@@ -8,8 +8,8 @@ class PawPostForm(forms.ModelForm):
         fields = ['title', 'image', 'description']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-select'}),
-            'image': forms.ImageField(attrs={'class': 'form-image'}),
+            'image': forms.ImageField(),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
 
-    
+    #attrs={'class': 'form-image'}

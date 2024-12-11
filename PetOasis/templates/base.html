@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pet Oasis</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
   </head>
   <body>
     <!-- Header -->
@@ -15,16 +15,18 @@
       </div>
       <nav class="nav">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Facilities</a></li>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'facilities' %}">Facilities</a></li>
+          <li><a href="{% url 'blog_and_news' %}">Blog and News</a></li>
           <li><a href="#">About Us</a></li>
-          <li><a href="#">Blog</a></li>
         </ul>
       </nav>
       <div class="search-and-login">
         <input type="text" placeholder="Search..." />
-        {% if not user.is_authenticated %}
-        <button>Login</button>
+        {% if not request.user.is_authenticated %}
+        <button>
+          <a href = "{% url 'register' %}">Register</a>
+        </button>
         {% else %}
         <!-- Profile pic here!!!-->
         {% endif %}
@@ -34,16 +36,48 @@
     {% block content %} {% endblock %}
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer-logo">
-        <img src="logo-footer.png" alt="Pet Oasis Logo" />
-      </div>
-      <div class="footer-links">
-        <h3>Locations</h3>
-        <p>Sofia<br />Plovdiv<br />Varna<br />Burgas</p>
-      </div>
-      <div class="footer-partner">
-        <h3>Our partner:</h3>
-        <img src="partner-logo.png" alt="Partner Logo" />
+      <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+          <img src="logo.png" alt="Pet Oasis Logo" class="footer-logo" />
+          <p>Care for every paw,<br />home for every soul</p>
+          <div class="social-icons">
+            <a href="#facebook"
+              ><img src="facebook-icon.png" alt="Facebook"
+            /></a>
+            <a href="#instagram"
+              ><img src="instagram-icon.png" alt="Instagram"
+            /></a>
+            <a href="#email"><img src="email-icon.png" alt="Email" /></a>
+            <a href="#website"><img src="web-icon.png" alt="Website" /></a>
+          </div>
+          <p>© 2024 PetOasis.com.<br />All rights reserved.</p>
+        </div>
+
+        <!-- Map Section -->
+        <div class="footer-map">
+          <img src="bulgaria-map.png" alt="Map of Bulgaria" />
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+          <div class="email-bulletin">
+            <h4>Email bulletins</h4>
+            <form>
+              <input type="email" placeholder="Your email" required />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <nav class="footer-links">
+            <a href="#facilities">Facilities</a>
+            <a href="#about">About us</a>
+            <a href="#blog">Blog</a>
+          </nav>
+          <div class="terms">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+          </div>
+        </div>
       </div>
     </footer>
   </body>
