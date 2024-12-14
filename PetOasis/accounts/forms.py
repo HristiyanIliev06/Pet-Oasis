@@ -4,6 +4,10 @@ from django import forms
 from django.core.validators import MinValueValidator
 from accounts.models import Profile
 
+"""class ProfileForm(forms.Form):
+    user_form = CombinedUserUpdateForm()
+    profile_form = UserProfileUpdateForm()"""
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 class CustomUserForm(UserCreationForm):
     first_name = forms.CharField(

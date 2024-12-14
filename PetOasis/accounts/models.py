@@ -70,7 +70,7 @@ class Profile(models.Model):
     )
     
     account_picture = models.ImageField(
-        upload_to='profile_pics/',
+        upload_to='profile_pics/profiles/',
         null = True,
         blank=True
         )

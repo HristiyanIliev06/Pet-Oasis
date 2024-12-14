@@ -1,63 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Oasis</title>
-    <link rel="stylesheet" href="static/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="logo">
-        <a href="index.html">
-          <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-        </a>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="facilities_home.html">Facilities</a></li>
-          <li>
-            <a href="pawposts.html" class="blog-link"> Blog & News </a>
-          </li>
-          <li><a href="about_us.html">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="search-and-login">
-        <div class="search-container">
-          <input type="text" placeholder="Search..." />
-          <button class="search-btn">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-        <a href="register.html">
-          <button class="register">REGISTER</button>
-        </a>
-      </div>
-    </header>
-
+{% extends 'base.html' %} {% load static %} {% block content %}
     <div class="profile-container">
       <!-- Profile Header -->
       <div class="profile-header">
         <img
-          src="media/imagery/profile-placeholder.jpg"
+          src="{{profile.account_picture}}"
           alt="Profile Picture"
           class="profile-image"
         />
         <div class="profile-welcome">
-          <h1>Hi, John! Welcome!</h1>
+          <h1>Hi, {{user.username}}! Welcome!</h1>
         </div>
         <div class="profile-actions">
-          <a href="logout.html" class="profile-link logout-link">Log out</a>
-          <a href="edit_account.html" class="profile-link edit-link"
+          <a href="{% url 'logout' %}"
+          onclick="event.preventDefault(); document.getElementById('logout-form').submit()"  class="profile-link logout-link">Log out</a>
+          <a href="{% url 'edit_profile' %}" class="profile-link edit-link"
             >Edit Account</a
           >
-          <a href="delete_account.html" class="profile-link delete-link"
+          <a href="{% url 'delete_account' %}" class="profile-link delete-link"
             >Delete Account</a
           >
         </div>
@@ -68,14 +27,21 @@
       <p class="section-subtitle">Register your pets for future booking</p>
 
       <div class="pets-grid">
-        <!-- Example Pet Card -->
+
         <div class="pet-card">
           <i class="fas fa-dog pet-icon"></i>
           <h3 class="pet-name">Max</h3>
           <p class="pet-type">Golden Retriever</p>
         </div>
 
-        <!-- Example Pet Card -->
+        <!-- Example Pet Card 
+        <div class="pet-card">
+          <i class="fas fa-dog pet-icon"></i>
+          <h3 class="pet-name">Max</h3>
+          <p class="pet-type">Golden Retriever</p>
+        </div>
+
+        <!-- Example Pet Card 
         <div class="pet-card">
           <i class="fas fa-cat pet-icon"></i>
           <h3 class="pet-name">Luna</h3>
@@ -83,10 +49,12 @@
         </div>
 
         <!-- Add Pet Card -->
+         <a href = "{% url 'add_pet' %}">
         <div class="pet-card add-pet-card">
           <i class="fas fa-plus pet-icon"></i>
           <p>Add New Pet</p>
         </div>
+      </a>
       </div>
 
       <!-- Offers Section -->
@@ -109,69 +77,8 @@
         </div>
       </div>
     </div>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Left Section -->
-        <div class="footer-left">
-          <div class="footer-logo">
-            <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-          </div>
-          <p class="footer-motto">
-            Care for every paw,<br />home for every soul
-          </p>
-          <div class="social-icons">
-            <a href="#facebook" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#instagram" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#twitter" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#linkedin" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-          <p class="copyright">2024 PetOasis.com. All rights reserved.</p>
-        </div>
-
-        <!-- Map Section -->
-        <div class="footer-map">
-          <h3>Find Us</h3>
-          <img src="bulgaria-map.png" alt="Map of Bulgaria" class="map-image" />
-          <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
-        </div>
-
-        <!-- Right Section -->
-        <div class="footer-right">
-          <div class="email-bulletin">
-            <h3>Stay Updated</h3>
-            <p>Subscribe to our newsletter for the latest updates</p>
-            <form class="subscribe-form">
-              <div class="input-group">
-                <input type="email" placeholder="Your email address" required />
-                <button type="submit">
-                  <i class="fas fa-paper-plane"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-          <nav class="footer-links">
-            <h3>Quick Links</h3>
-            <div class="links-grid">
-              <a href="#facilities"><i class="fas fa-paw"></i> Facilities</a>
-              <a href="#about"><i class="fas fa-paw"></i> About Us</a>
-              <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
-              <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
-              <a href="#privacy"><i class="fas fa-paw"></i> Privacy Policy</a>
-              <a href="#terms"><i class="fas fa-paw"></i> Terms of Service</a>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </footer>
-    <script src="static/js/slider.js"></script>
-  </body>
-</html>
+    
+    <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: none;">
+      {% csrf_token %}
+  </form>
+    {% endblock %}

@@ -1,15 +1,23 @@
 from django.shortcuts import render
-from django.contrib.auth import get_user_model
-from accounts.models import Profile
+from blog_and_news.models import PawPost
+from facilities.models import PetHotel
+
 
 # Create your views here.
 def index(request):
-    '''UserModel = get_user_model()
-    user = UserModel.objects.get()
+    current_user = request.user
+    
+    top_3_facilities = PetHotel.objects.filter(id__lte=3)
+    
+    pawposts = PawPost.objects.all()
     
     context = {
-        'user': user
-    }'''
+        'user': current_user,
+        'profile': current_user.profile,
+        'top_3_facilities': top_3_facilities,
+        'pawposts': pawposts,
+        
+    }
     
     
-    return render(request, template_name='index.html') #, context = context)
+    return render(request, template_name='index.html', context = context)

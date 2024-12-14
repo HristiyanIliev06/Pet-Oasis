@@ -2,7 +2,7 @@
 
 import django.core.validators
 import django.db.models.deletion
-import validators
+import core.validators as validators
 from django.db import migrations, models
 
 

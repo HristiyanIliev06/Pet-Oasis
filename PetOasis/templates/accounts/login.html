@@ -1,47 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Pet Oasis</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="static/styles.css" />
-  </head>
-  <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+</head>
+<body>
     <div class="main-container">
-      <div class="login-container">
-        <div class="logo">
-          <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-          <h1>PET OASIS</h1>
-        </div>
-
-        <div class="login-form">
-          <h2>Log in to Pet Oasis</h2>
-
-          <form method="post">
-            <div class="form-group">
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required />
+        <div class="login-container">
+            <div class="logo">
+                <span class="logo-text logo-text-pet">PET</span>
+                <a href="{% url 'index' %}">
+                  <img src="{% static '/imagery/logo.png' %}" alt="Pet Oasis Logo">
+                  </a>
+                <span class="logo-text logo-text-oasis">OASIS</span>
             </div>
 
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required />
+            <div class="login-form">
+                <h2>Log in to Pet Oasis</h2>
+                
+                <form method="POST" action ="{% url 'login' %}">
+                    {% csrf_token %}
+                    {{form}}
+                    <!--<div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>-->
+
+                    <button type="submit" class="login-btn">LOG IN</button>
+
+                    <p class="register-link">Not having an account yet? <a href="register.html">Register</a></p>
+                </form>
             </div>
-
-            <button type="submit" class="login-btn">LOG IN</button>
-
-            <p class="register-link">
-              Not having an account yet? <a href="register.html">Register</a>
-            </p>
-          </form>
         </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>

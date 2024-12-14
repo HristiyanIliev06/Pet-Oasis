@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
-from validators import pet_hotel_and_shelter_name_validator as phsnv
+from core.validators import pet_hotel_and_shelter_name_validator as phsnv
 from pets.models import Pet
 
 
@@ -27,16 +27,22 @@ class PetHotel(models.Model):
         blank = False,
     )
     
+    outside_view = models.URLField()
+    
     phone = models.CharField(max_length=15)
     
     email = models.EmailField()
     
     description = models.TextField()
     
-    favourite = models.BooleanField()
+    favourite = models.BooleanField(
+        null=True,
+        blank = True,)
     
     to_visit = models.BooleanField(
-        verbose_name='to-visit'
+        verbose_name='to-visit',
+        null=True,
+        blank = True,
         )
     
     def __str__(self):

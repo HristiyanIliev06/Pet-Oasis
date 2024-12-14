@@ -11,6 +11,11 @@ from django.contrib.auth import authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages'''
 
+
+#profile = Profile.objects.get(user=request.user) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# @login_required !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 class UserRegisterView(CreateView):
     form_class = CustomUserForm
     template_name = 'accounts/register.html'
@@ -34,7 +39,7 @@ def delete_account(request):
 
 class DeleteAccountView(LoginRequiredMixin, TemplateView):
     template_name = 'users/delete_account.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('index')
 
     def get(self, request, *args, **kwargs):
         # Show the form to the user for confirmation

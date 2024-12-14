@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}" />
   </head>
   <body>
     <div class="main-container">
@@ -25,7 +26,7 @@
           cannot be undone.
         </p>
         <div class="button-group">
-          <form method="post" style="display: inline">
+          <form method="POST" style="display: inline" action="{% url 'delete_pet' %}">
             <button type="submit" class="delete-btn">DELETE</button>
           </form>
           <button onclick="window.history.back()" class="cancel-btn">

@@ -34,7 +34,7 @@ class Pet(models.Model):
         )
     
     image = models.ImageField(
-        upload_to='profile_pics/')
+        upload_to='profile_pics/pets/')
     
     owner = models.ForeignKey(
         Profile,

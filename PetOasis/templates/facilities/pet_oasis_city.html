@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Oasis</title>
-    <link rel="stylesheet" href="static/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="logo">
-        <a href="index.html">
-          <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-        </a>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="facilities_home.html">Facilities</a></li>
-          <li>
-            <a href="pawposts.html" class="blog-link"> Blog & News </a>
-          </li>
-          <li><a href="about_us.html">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="search-and-login">
-        <div class="search-container">
-          <input type="text" placeholder="Search..." />
-          <button class="search-btn">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-        <a href="register.html">
-          <button class="register">REGISTER</button>
-        </a>
-      </div>
-    </header>
+{% extends 'base.html' %} {% load static %} {% block content %}
 
     <section class="quote">
       <div class="quote-container">
@@ -74,35 +33,35 @@
     </section>
 
     <section class="city-gallery">
-      <h2 class="section-title">Explore Our Facilities</h2>
+      <h2 class="section-title">{{facility.name}}</h2>
       <div class="gallery-grid">
         <div class="main-image image-container">
-          <img src="media/imagery/hotel-main.jpg" alt="Pet Hotel Main View" />
+          <img src="{% static '/imagery/hotel-main.jpg' %}" alt="Pet Hotel Main View" />
           <div class="image-label">Luxury Pet Hotel</div>
         </div>
         <div class="side-images">
           <div class="side-image image-container">
-            <img src="media/imagery/hotel-room1.jpg" alt="Hotel Room 1" />
+            <img src="{% static '/imagery/hotel-room1.jpg' %}" alt="Hotel Room 1" />
             <div class="image-label">Deluxe Suite</div>
           </div>
           <div class="side-image image-container">
-            <img src="media/imagery/hotel-room2.jpg" alt="Hotel Room 2" />
+            <img src="{% static '/imagery/hotel-room2.jpg' %}" alt="Hotel Room 2" />
             <div class="image-label">Premium Room</div>
           </div>
           <div class="side-image image-container">
-            <img src="media/imagery/hotel-room3.jpg" alt="Hotel Room 3" />
-            <div class="image-label">Standard Room</div>
+            <img src="{% static '/imagery/hotel-room3.jpg' %}" alt="Hotel Room 3" />
+            <div class="image-label">Our hotel</div>
           </div>
         </div>
       </div>
       <div class="bottom-images">
         <div class="bottom-image image-container">
-          <img src="media/imagery/shelter1.jpg" alt="Pet Shelter 1" />
-          <div class="image-label">Our Shelter</div>
+          <img src="{% static '/imagery/shelter1.jpg' %}" alt="Pet Shelter 1" />
+          <div class="image-label">Our shelter</div>
         </div>
         <div class="bottom-image image-container">
-          <img src="media/imagery/shelter2.jpg" alt="Pet Shelter 2" />
-          <div class="image-label">Play Area</div>
+          <img src="{% static '/imagery/shelter2.jpg' %}" alt="Pet Shelter 2" />
+          <div class="image-label">Our shelter</div>
         </div>
       </div>
     </section>
@@ -200,68 +159,4 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Left Section -->
-        <div class="footer-left">
-          <div class="footer-logo">
-            <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-          </div>
-          <p class="footer-motto">
-            Care for every paw,<br />home for every soul
-          </p>
-          <div class="social-icons">
-            <a href="#facebook" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#instagram" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#twitter" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#linkedin" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-          <p class="copyright">2024 PetOasis.com. All rights reserved.</p>
-        </div>
-
-        <!-- Map Section -->
-        <div class="footer-map">
-          <h3>Find Us</h3>
-          <img src="bulgaria-map.png" alt="Map of Bulgaria" class="map-image" />
-          <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
-        </div>
-
-        <!-- Right Section -->
-        <div class="footer-right">
-          <div class="email-bulletin">
-            <h3>Stay Updated</h3>
-            <p>Subscribe to our newsletter for the latest updates</p>
-            <form class="subscribe-form">
-              <div class="input-group">
-                <input type="email" placeholder="Your email address" required />
-                <button type="submit">
-                  <i class="fas fa-paper-plane"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-          <nav class="footer-links">
-            <h3>Quick Links</h3>
-            <div class="links-grid">
-              <a href="#facilities"><i class="fas fa-paw"></i> Facilities</a>
-              <a href="#about"><i class="fas fa-paw"></i> About Us</a>
-              <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
-              <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
-              <a href="#privacy"><i class="fas fa-paw"></i> Privacy Policy</a>
-              <a href="#terms"><i class="fas fa-paw"></i> Terms of Service</a>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </footer>
-    <script src="static/js/slider.js"></script>
-  </body>
-</html>
+    {% endblock %}

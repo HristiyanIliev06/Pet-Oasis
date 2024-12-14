@@ -1,173 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Oasis</title>
-    <link rel="stylesheet" href="static/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="logo">
-        <span class="logo-text logo-text-pet">PET</span>
-        <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-        <span class="logo-text logo-text-oasis">OASIS</span>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="facilities_home.html">Facilities</a></li>
-          <li>
-            <a href="pawposts.html" class="blog-link"> Blog & News </a>
-          </li>
-          <li><a href="about_us.html">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="search-and-login">
-        <div class="search-container">
-          <input type="text" placeholder="Search..." />
-          <button class="search-btn">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-        <a href="register.html">
-          <button class="register">REGISTER</button>
-        </a>
-      </div>
-    </header>
+{% extends 'base.html' %} {% load static %} {% block content %}
 
     <!-- Delete Account Form -->
-    <div class="delete-container">
-      <div class="logo">
-        <span class="logo-text logo-text-pet">PET</span>
-        <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-        <span class="logo-text logo-text-oasis">OASIS</span>
-      </div>
-
-      <div class="delete-form">
-        <h2>Delete account</h2>
-
-        <form method="post">
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required />
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-
-          <div class="form-group">
-            <label for="confirm-password">Confirm password:</label>
-            <input
-              type="password"
-              id="confirm-password"
-              name="confirm-password"
-              required
-            />
-          </div>
-
-          <div class="form-group checkboxes">
-            <div class="checkbox-group">
-              <input
-                type="checkbox"
-                id="confirm-delete"
-                name="confirm-delete"
-                required
-              />
-              <label for="confirm-delete"
-                >Confirm full awareness that your account will be deleted
-                forever after clicking the button "DELETE" down below</label
-              >
-            </div>
-            <div class="checkbox-group">
-              <input
-                type="checkbox"
-                id="final-confirm"
-                name="final-confirm"
-                required
-              />
-              <label for="final-confirm"
-                >Last chance to change your mind, confirm being totally certain
-                that the deletion of your account forever is your will</label
-              >
-            </div>
-          </div>
-
-          <button type="submit" class="delete-btn">DELETE</button>
-        </form>
-      </div>
+<div class="delete-container">
+    <div class="logo">
+      <span class="logo-text logo-text-pet">PET</span>
+      <a href="{% url 'index' %}">
+        <img src="{% static '/imagery/logo.png' %}" alt="Pet Oasis Logo">
+        </a>
+      <span class="logo-text logo-text-oasis">OASIS</span>
     </div>
 
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Left Section -->
-        <div class="footer-left">
-          <div class="footer-logo">
-            <span class="logo-text logo-text-pet">PET</span>
-            <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-            <span class="logo-text logo-text-oasis">OASIS</span>
-          </div>
-          <p class="footer-motto">
-            Care for every paw,<br />home for every soul
-          </p>
-          <div class="social-icons">
-            <a href="#facebook" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#instagram" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#twitter" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#linkedin" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-          <p class="copyright">2024 PetOasis.com. All rights reserved.</p>
-        </div>
-
-        <!-- Map Section -->
-        <div class="footer-map">
-          <h3>Find Us</h3>
-          <img src="bulgaria-map.png" alt="Map of Bulgaria" class="map-image" />
-          <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
-        </div>
-
-        <!-- Right Section -->
-        <div class="footer-right">
-          <div class="email-bulletin">
-            <h3>Stay Updated</h3>
-            <p>Subscribe to our newsletter for the latest updates</p>
-            <form class="subscribe-form">
-              <div class="input-group">
-                <input type="email" placeholder="Your email address" required />
-                <button type="submit">
-                  <i class="fas fa-paper-plane"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-          <nav class="footer-links">
-            <h3>Quick Links</h3>
-            <div class="links-grid">
-              <a href="#facilities"><i class="fas fa-paw"></i> Facilities</a>
-              <a href="#about"><i class="fas fa-paw"></i> About Us</a>
-              <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
-              <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
-              <a href="#privacy"><i class="fas fa-paw"></i> Privacy Policy</a>
-              <a href="#terms"><i class="fas fa-paw"></i> Terms of Service</a>
+    <div class="delete-form">
+        <h2>Delete account</h2>
+        
+        <form method="POST" action ="{% url 'delete_account' %}">
+          {% csrf_token %}
+          {{form}}
+            <!--<div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-          </nav>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>-->
+
+            <div class="form-group checkboxes">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm-delete" name="confirm-delete" required>
+                    <label for="confirm-delete">Confirm full awareness that your account will be deleted forever after clicking the button "DELETE" down below</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="final-confirm" name="final-confirm" required>
+                    <label for="final-confirm">Last chance to change your mind, confirm being totally certain that the deletion of your account forever is your will</label>
+                </div>
+            </div>
+
+            <button type="submit" class="delete-btn">DELETE</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

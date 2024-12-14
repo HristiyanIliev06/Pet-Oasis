@@ -12,9 +12,14 @@ class PawPost(models.Model):
     
     description = models.TextField()
     
-    image = models.ImageField(upload_to='profile_pics/')
+    image = models.ImageField(upload_to='profile_pics/pawposts/')
     
     when_uploaded = models.DateTimeField(auto_now_add=True)
+    
+    additional_mentions = models.CharField(
+        null=True,
+        blank=True,
+    )
     
     author = models.ForeignKey(
         Profile,

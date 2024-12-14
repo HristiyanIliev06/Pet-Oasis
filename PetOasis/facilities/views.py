@@ -22,5 +22,5 @@ def show_a_facility_page_by_selected_city(request, city):
     else: 
         raise ValidationError("The facility does not exist!") 
     
-    return render(request, template_name='pet_oasis_city.html', context = context)
+    return render(request, template_name='facilities/pet_oasis_city.html', context = context)
     
