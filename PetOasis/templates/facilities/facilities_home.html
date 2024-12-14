@@ -1,12 +1,301 @@
-{% extends 'base.html' %} {% block content%}
-<section class="hero">
-  <h1>Welcome to Pet Oasis</h1>
-  <p>Hospitable and comforting environment</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Oasis</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
+        </a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="facilities_home.html">Facilities</a></li>
+          <li>
+            <a href="pawposts.html" class="blog-link"> Blog & News </a>
+          </li>
+          <li><a href="about_us.html">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="search-and-login">
+        <div class="search-container">
+          <input type="text" placeholder="Search..." />
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <a href="register.html">
+          <button class="register">REGISTER</button>
+        </a>
+      </div>
+    </header>
 
-<section>
-  <article>dsafdfsd</article>
-  <article>dsafdfsd</article>
-  <article>dsafdfsd</article>
-</section>
-{% endblock %}
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Explore our cozy hotels and shelters</h1>
+        <p>Hospitable and comforting environment</p>
+      </div>
+    </section>
+
+    <section class="facilities">
+      <div class="facilities-grid">
+        <!-- Major Cities -->
+        <div class="facility-card">
+          <h3>Sofia</h3>
+          <img src="media/imagery/facilities/sofia.jpg" alt="Sofia Facility" />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Plovdiv</h3>
+          <img
+            src="media/imagery/facilities/plovdiv.jpg"
+            alt="Plovdiv Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Varna</h3>
+          <img src="media/imagery/facilities/varna.jpg" alt="Varna Facility" />
+          <button class="view-btn">View</button>
+        </div>
+
+        <!-- Additional Cities -->
+        <div class="facility-card">
+          <h3>Burgas</h3>
+          <img
+            src="media/imagery/facilities/burgas.jpg"
+            alt="Burgas Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Ruse</h3>
+          <img src="media/imagery/facilities/ruse.jpg" alt="Ruse Facility" />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Stara Zagora</h3>
+          <img
+            src="media/imagery/facilities/stara-zagora.jpg"
+            alt="Stara Zagora Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Pleven</h3>
+          <img
+            src="media/imagery/facilities/pleven.jpg"
+            alt="Pleven Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Sliven</h3>
+          <img
+            src="media/imagery/facilities/sliven.jpg"
+            alt="Sliven Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Dobrich</h3>
+          <img
+            src="media/imagery/facilities/dobrich.jpg"
+            alt="Dobrich Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Shumen</h3>
+          <img
+            src="media/imagery/facilities/shumen.jpg"
+            alt="Shumen Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Pernik</h3>
+          <img
+            src="media/imagery/facilities/pernik.jpg"
+            alt="Pernik Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Haskovo</h3>
+          <img
+            src="media/imagery/facilities/haskovo.jpg"
+            alt="Haskovo Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Yambol</h3>
+          <img
+            src="media/imagery/facilities/yambol.jpg"
+            alt="Yambol Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Pazardzhik</h3>
+          <img
+            src="media/imagery/facilities/pazardzhik.jpg"
+            alt="Pazardzhik Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Blagoevgrad</h3>
+          <img
+            src="media/imagery/facilities/blagoevgrad.jpg"
+            alt="Blagoevgrad Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Veliko Tarnovo</h3>
+          <img
+            src="media/imagery/facilities/veliko-tarnovo.jpg"
+            alt="Veliko Tarnovo Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Vratsa</h3>
+          <img
+            src="media/imagery/facilities/vratsa.jpg"
+            alt="Vratsa Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Gabrovo</h3>
+          <img
+            src="media/imagery/facilities/gabrovo.jpg"
+            alt="Gabrovo Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Asenovgrad</h3>
+          <img
+            src="media/imagery/facilities/asenovgrad.jpg"
+            alt="Asenovgrad Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Kazanlak</h3>
+          <img
+            src="media/imagery/facilities/kazanlak.jpg"
+            alt="Kazanlak Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="facility-card">
+          <h3>Kyustendil</h3>
+          <img
+            src="media/imagery/facilities/kyustendil.jpg"
+            alt="Kyustendil Facility"
+          />
+          <button class="view-btn">View</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+          <div class="footer-logo">
+            <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
+          </div>
+          <p class="footer-motto">
+            Care for every paw,<br />home for every soul
+          </p>
+          <div class="social-icons">
+            <a href="#facebook" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#instagram" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#twitter" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#linkedin" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <p class="copyright">2024 PetOasis.com. All rights reserved.</p>
+        </div>
+
+        <!-- Map Section -->
+        <div class="footer-map">
+          <h3>Find Us</h3>
+          <img src="bulgaria-map.png" alt="Map of Bulgaria" class="map-image" />
+          <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+          <div class="email-bulletin">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for the latest updates</p>
+            <form class="subscribe-form">
+              <div class="input-group">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <nav class="footer-links">
+            <h3>Quick Links</h3>
+            <div class="links-grid">
+              <a href="#facilities"><i class="fas fa-paw"></i> Facilities</a>
+              <a href="#about"><i class="fas fa-paw"></i> About Us</a>
+              <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
+              <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
+              <a href="#privacy"><i class="fas fa-paw"></i> Privacy Policy</a>
+              <a href="#terms"><i class="fas fa-paw"></i> Terms of Service</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="static/js/nav.js"></script>
+  </body>
+</html>

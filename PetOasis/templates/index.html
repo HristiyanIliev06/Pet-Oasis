@@ -1,72 +1,321 @@
-{% extends 'base.html' %} {% block content%}
-<!-- Hero Section -->
-<section class="hero">
-  <h1>Welcome to Pet Oasis</h1>
-  <p>
-    Facilities, bringing together shelters and pet hotels for your beloved
-    pet(s)
-  </p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Oasis</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
+        </a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="facilities_home.html">Facilities</a></li>
+          <li>
+            <a href="pawposts.html" class="blog-link"> Blog & News </a>
+          </li>
+          <li><a href="about_us.html">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="search-and-login">
+        <div class="search-container">
+          <input type="text" placeholder="Search..." />
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <a href="register.html">
+          <button class="register">REGISTER</button>
+        </a>
+      </div>
+    </header>
+    <!-- ########################################################################################################### -->
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Pet Oasis</h1>
+        <p>Where every pet finds their paradise</p>
+      </div>
+    </section>
 
-<!-- Top Facilities -->
-<section class="facilities">
-  <h2>Our top 3 facilities</h2>
-  <p>Our best pet hotels and their accompanying shelters</p>
-  <div class="facility-cards">
-    <article class="facility-card">
-      <h3>Pet Oasis Sofia</h3>
-      <img
-        src="media/imagery/pet-oasis-sofia.jpg"
-        alt="Pet Oasis Sofia Facility"
-      />
-      <button class="view-btn">View</button>
-    </article>
-    <article class="facility-card">
-      <h3>Pet Oasis Plovdiv</h3>
-      <img
-        src="media/imagery/pet-oasis-plovdiv.jpg"
-        alt="Pet Oasis Plovdiv Facility"
-      />
-      <button class="view-btn">View</button>
-    </article>
-    <article class="facility-card">
-      <h3>Pet Oasis Varna</h3>
-      <img
-        src="media/imagery/pet-oasis-varna.jpg"
-        alt="Pet Oasis Varna Facility"
-      />
-      <button class="view-btn">View</button>
-    </article>
-  </div>
-  <button class="view-all-btn">VIEW ALL</button>
-</section>
+    <!-- Top Facilities -->
+    <section class="facilities">
+      <h2>Our top 3 facilities</h2>
+      <p>Our best pet hotels and their accompanying shelters</p>
+      <div class="facility-cards">
+        <article class="facility-card">
+          <h3>Pet Oasis Sofia</h3>
+          <img
+            src="media/imagery/pet-oasis-sofia.jpg"
+            alt="Pet Oasis Sofia Facility"
+          />
+          <button class="view-btn">View</button>
+        </article>
+        <article class="facility-card">
+          <h3>Pet Oasis Plovdiv</h3>
+          <img
+            src="media/imagery/pet-oasis-plovdiv.jpg"
+            alt="Pet Oasis Plovdiv Facility"
+          />
+          <button class="view-btn">View</button>
+        </article>
+        <article class="facility-card">
+          <h3>Pet Oasis Varna</h3>
+          <img
+            src="media/imagery/pet-oasis-varna.jpg"
+            alt="Pet Oasis Varna Facility"
+          />
+          <button class="view-btn">View</button>
+        </article>
+      </div>
+      <button class="view-all-btn">VIEW ALL</button>
+    </section>
 
-<!-- Quote Section -->
-<section class="quote">
-  <p>“Care for every paw, home for every heart”</p>
-  <div class="icons">
-    <span>Care</span>
-    <span>Home</span>
-    <span>Peace</span>
-  </div>
-</section>
+    <!-- Quote Section -->
+    <section class="quote">
+      <div class="quote-container">
+        <div class="quote-text">
+          <i class="fas fa-quote-left"></i>
+          <h2>"Care for every paw, home for every heart"</h2>
+          <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="values-container">
+          <div class="value-item">
+            <i class="fas fa-heart"></i>
+            <h3>Care</h3>
+            <p>
+              Providing loving attention and professional care for every pet
+              that enters our doors
+            </p>
+          </div>
+          <div class="value-item">
+            <i class="fas fa-home"></i>
+            <h3>Home</h3>
+            <p>
+              Creating a warm, comfortable environment that feels just like home
+            </p>
+          </div>
+          <div class="value-item">
+            <i class="fas fa-dove"></i>
+            <h3>Peace</h3>
+            <p>Ensuring tranquil spaces where pets can relax and feel secure</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Feedback Section -->
-<section class="feedback">
-  <h2>Our customers' feedback</h2>
-  <div class="feedback-cards">
-    <div class="feedback-card">
-      <img src="dog.jpg" alt="Dog feedback" />
-      <p>★★★★★</p>
-    </div>
-    <div class="feedback-card">
-      <img src="cat.jpg" alt="Cat feedback" />
-      <p>★★★★★</p>
-    </div>
-    <div class="feedback-card">
-      <img src="bird.jpg" alt="Bird feedback" />
-      <p>★★★★★</p>
-    </div>
-  </div>
-</section>
-{% endblock%}
+    <!-- Feedback Section -->
+    <section class="feedback">
+      <h2>Our customers' feedback</h2>
+      <p class="subtitle">What our furry friends think about us</p>
+
+      <div class="feedback-slider">
+        <div class="feedback-track">
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/dog1.jpg" alt="Happy Dog" />
+            </div>
+            <div class="speech-bubble">
+              "The best care I've ever received! Lots of treats and belly rubs!"
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Max the Golden Retriever</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/cat1.jpg" alt="Happy Cat" />
+            </div>
+            <div class="speech-bubble">
+              "Purrfect accommodation! The sunny spots are amazing!"
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Luna the Siamese</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/dog2.jpg" alt="Happy Puppy" />
+            </div>
+            <div class="speech-bubble">
+              "So many friends to play with! Can't wait to come back!"
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Charlie the Beagle</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/cat2.jpg" alt="Happy Cat" />
+            </div>
+            <div class="speech-bubble">
+              "The staff here treats me like royalty! My favorite spot is by the
+              window."
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Oliver the Persian</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/dog3.jpg" alt="Happy Dog" />
+            </div>
+            <div class="speech-bubble">
+              "Amazing playtime activities! Made so many furry friends here!"
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Bella the Labrador</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/bird1.jpg" alt="Happy Bird" />
+            </div>
+            <div class="speech-bubble">
+              "Spacious cages and friendly staff! Love the natural light!"
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Rio the Parrot</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="pet-image">
+              <img src="media/imagery/feedback/cat3.jpg" alt="Happy Cat" />
+            </div>
+            <div class="speech-bubble">
+              "The scratching posts are top-notch! And the catnip toys are
+              purr-fect!"
+            </div>
+            <div class="paw-rating">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+            <p class="pet-name">- Milo the Maine Coon</p>
+          </div>
+
+          <!-- Add more feedback cards as needed -->
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+    <!-- ########################################################################################################### -->
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+          <div class="footer-logo">
+            <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
+          </div>
+          <p class="footer-motto">
+            Care for every paw,<br />home for every soul
+          </p>
+          <div class="social-icons">
+            <a href="#facebook" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#instagram" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#twitter" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#linkedin" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <p class="copyright">2024 PetOasis.com. All rights reserved.</p>
+        </div>
+
+        <!-- Map Section -->
+        <div class="footer-map">
+          <h3>Find Us</h3>
+          <img src="bulgaria-map.png" alt="Map of Bulgaria" class="map-image" />
+          <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+          <div class="email-bulletin">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for the latest updates</p>
+            <form class="subscribe-form">
+              <div class="input-group">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <nav class="footer-links">
+            <h3>Quick Links</h3>
+            <div class="links-grid">
+              <a href="#facilities"><i class="fas fa-paw"></i> Facilities</a>
+              <a href="#about"><i class="fas fa-paw"></i> About Us</a>
+              <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
+              <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
+              <a href="#privacy"><i class="fas fa-paw"></i> Privacy Policy</a>
+              <a href="#terms"><i class="fas fa-paw"></i> Terms of Service</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script src="static/js/slider.js"></script>
+  </body>
+</html>

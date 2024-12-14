@@ -29,6 +29,7 @@ class CustomUserForm(UserCreationForm):
         
 
 class CustomUserEditForm(UserChangeForm):
+    
     class Meta(UserChangeForm.Meta):        #MORE REALISTIC DESIGN IF THE TIME ALLOWS IT
         model = get_user_model()
         fields = "__all__"
