@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
-from accounts.forms import CustomUserEditForm, CustomUserForm
+from accounts.forms import UserRegisterForm, EditAccountForm
 from accounts.models import Profile
 
 UserModel = get_user_model()
@@ -17,8 +17,8 @@ class ProfileInline(admin.StackedInline):
 @admin.register(UserModel)
 class AppUserAdmin(UserAdmin):
     inlines = (ProfileInline, )
-    form = CustomUserEditForm
-    add_form = CustomUserForm
+    form = EditAccountForm
+    add_form = UserRegisterForm
 
     list_display = ('username', 'email')
 

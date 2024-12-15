@@ -5,19 +5,26 @@ from django.core.validators import MinValueValidator
 class Pet(models.Model):
     
     SPECIES_CHOICES = [
-        ('Dog', 'Dog'),
-        ('Cat', 'Cat'),
+        ('dog', 'Dog'),
+        ('cat', 'Cat'),
+        ('bird', 'Bird'),
     ]
     
     name = models.CharField(
-        max_length=100)
+        max_length=100,
+        blank=False,
+        null=False,)
     
     species = models.CharField(
         max_length=20,
-        choices=SPECIES_CHOICES)
+        choices=SPECIES_CHOICES,
+        blank=False,
+        null=False,)
     
     breed = models.CharField(
-        max_length=100)
+        max_length=100,
+        blank=True,
+        null=True,)
     
     age = models.PositiveIntegerField(
         blank=False,
@@ -34,7 +41,9 @@ class Pet(models.Model):
         )
     
     image = models.ImageField(
-        upload_to='profile_pics/pets/')
+        upload_to='profile_pics/pets/',
+        blank=True,
+        null=True,)
     
     owner = models.ForeignKey(
         Profile,

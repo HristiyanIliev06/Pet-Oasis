@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
 from core.validators import pet_hotel_and_shelter_name_validator as phsnv
-from pets.models import Pet
+#from pets.models import Pet
 
 
 class PetHotel(models.Model):

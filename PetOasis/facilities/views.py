@@ -12,8 +12,8 @@ def show_facilities_page(request):
     
     return render(request, template_name='facilities/facilities_home.html', context = context)
 
-def show_a_facility_page_by_selected_city(request, city):
-    facility = PetHotel.objects.get(name = city or None)
+def show_a_facility_page_by_selected_city(request, city:str):
+    facility = PetHotel.objects.get(city = city or None)
     
     if facility:
         context = {

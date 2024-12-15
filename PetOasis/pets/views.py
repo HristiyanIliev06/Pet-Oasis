@@ -2,11 +2,11 @@ from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Pet
-from .forms import PetForm
+from .forms import RegisterPetForm
 
 class PetCreateView(LoginRequiredMixin, CreateView):
     model = Pet
-    form_class = PetForm
+    form_class = RegisterPetForm
     template_name = 'pets/pet_form.html'
     success_url = reverse_lazy('show_profile')
 

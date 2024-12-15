@@ -28,10 +28,14 @@
 
       <div class="pets-grid">
 
+        {% for pet in pets%}
         <div class="pet-card">
           <i class="fas fa-dog pet-icon"></i>
-          <h3 class="pet-name">Max</h3>
+          <h3 class="pet-name">{{pet.name}}</h3>
           <p class="pet-type">Golden Retriever</p>
+          <a href = "{% url 'delete_pet' %}" class="pet-link">
+            <button class="delete-pet">Delete</button>
+            </a>
         </div>
 
         <!-- Example Pet Card 
@@ -48,13 +52,13 @@
           <p class="pet-type">Persian Cat</p>
         </div>
 
-        <!-- Add Pet Card -->
-         <a href = "{% url 'add_pet' %}">
+        <!-- Add Pet Card --> 
         <div class="pet-card add-pet-card">
+          <a href="{% url 'add_pet' %}" class="pet-link">
           <i class="fas fa-plus pet-icon"></i>
+          </a>
           <p>Add New Pet</p>
         </div>
-      </a>
       </div>
 
       <!-- Offers Section -->
@@ -67,11 +71,11 @@
       <h3 class="section-title">Your Discount Cards</h3>
       <div class="discount-cards">
         <div class="discount-card">
-          <img src="media/imagery/discount-card1.jpg" alt="10% Off Next Stay" />
+          <img src="{% static '/imagery/discount-card1.jpg' %}" alt="10% Off Next Stay" />
         </div>
         <div class="discount-card">
           <img
-            src="media/imagery/discount-card2.jpg"
+            src="{% static '/imagery/discount-card2.jpg' %}"
             alt="Free Grooming Service"
           />
         </div>

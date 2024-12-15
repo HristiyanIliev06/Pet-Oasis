@@ -40,13 +40,20 @@
         <a href="{% url 'register' %}">
           <button class="register">REGISTER</button>
         </a>
-        {% else %}
+        {% elif profile.account_picture %}
         <a href="{% url 'show_profile' %}">
         <img
           src="{{profile.account_picture}}"
           alt="Profile Picture"
           class="profile-image"
         /></a>
+        {% else %}
+        <a href="{% url 'show_profile' %}">
+          <img
+            src="{% static '/imagery/default_avatar.png' %}"
+            alt="Profile Picture"
+            class="profile-image"
+          /></a>
         {% endif %}
       </div>
     </header>

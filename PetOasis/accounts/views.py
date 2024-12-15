@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, TemplateView
-from accounts.forms import CustomUserForm, CustomUserEditForm, DeleteAccountForm
+from accounts.forms import UserRegisterForm, EditAccountForm, DeleteAccountForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, logout
 
@@ -17,7 +17,7 @@ from django.contrib import messages'''
 
 
 class UserRegisterView(CreateView):
-    form_class = CustomUserForm
+    form_class = UserRegisterForm
     template_name = 'accounts/register.html'
     success_url = reverse_lazy('index')
 
@@ -30,7 +30,7 @@ class ShowProfileView(TemplateView):
     template_name = 'accounts/show_profile.html'
 
 class UserEditView(UpdateView):
-    form_class = CustomUserEditForm
+    form_class = EditAccountForm
     template_name = 'accounts/edit_account.html'
     success_url = reverse_lazy('index')
     
