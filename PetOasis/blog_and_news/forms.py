@@ -1,4 +1,4 @@
-from django import forms
+'''from django import forms
 from blog_and_news.models import PawPost
 
 
@@ -12,4 +12,4 @@ class PawPostForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
 
-    #attrs={'class': 'form-image'}
+    #attrs={'class': 'form-image'}'''

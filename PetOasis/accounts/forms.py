@@ -111,7 +111,8 @@ class EditAccountForm(UserChangeForm):
         
 class DeleteAccountForm(forms.ModelForm):
     confirm_password = forms.CharField(
-        widget=forms.PasswordInput,
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Confirm your password'}),
         required=True)
 
     labels = {
@@ -128,6 +129,7 @@ class DeleteAccountForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['disabled'] = 'disabled'
         self.fields['username'].widget.attrs['readonly'] = 'readonly'
+        self.fields['password'].widget.attrs['placeholder'] = 'Enter your current password'
 
         
     

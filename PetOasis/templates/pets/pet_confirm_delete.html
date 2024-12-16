@@ -17,7 +17,7 @@
     <div class="main-container">
       <div class="confirm-delete-container">
         <div class="logo">
-          <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
+          <img src="{% static '/imagery/logo.png' %}" alt="Pet Oasis Logo" />
           <h1>PET OASIS</h1>
         </div>
         <h2>Confirm Deletion</h2>
@@ -26,7 +26,8 @@
           cannot be undone.
         </p>
         <div class="button-group">
-          <form method="POST" style="display: inline" action="{% url 'delete_pet' %}">
+          <form method="POST" style="display: inline" action="{% url 'delete_pet' pk=pet.id %}">
+            {% csrf_token %}
             <button type="submit" class="delete-btn">DELETE</button>
           </form>
           <button onclick="window.history.back()" class="cancel-btn">
@@ -35,6 +36,6 @@
         </div>
       </div>
     </div>
-    <script src="static/js/nav.js"></script>
+    <script src="{% static '/js/nav.js' %}" ></script>
   </body>
 </html>

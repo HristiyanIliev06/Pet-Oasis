@@ -24,9 +24,9 @@
           <li><a href="{% url 'index' %}" class="active">Home</a></li>
           <li><a href="{% url 'facilities' %}">Facilities</a></li>
           <li>
-            <a href="#blog" class="blog-link"> Blog & News </a>
+            <a href="{% url 'blog_and_news' %}" class="blog-link"> Blog & News </a>
           </li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="{% url 'about_us' %}">About Us</a></li>
         </ul>
       </nav>
       <div class="search-and-login">
@@ -125,6 +125,5 @@
         </div>
       </div>
     </footer>
-    <script src="static/js/slider.js"></script>
   </body>
 </html>
