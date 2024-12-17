@@ -7,21 +7,20 @@ class RegisterPetForm(forms.ModelForm):
         exclude = ('owner',)
         
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'species': forms.Select(attrs={'class': 'form-select'}),
-            'breed': forms.TextInput(attrs={'class': 'form-control'}),
-            'age': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
-            'weight': forms.NumberInput(attrs={'class': 'form-control'}),
-            'image': forms.ImageField()
+            'name': forms.TextInput(attrs={'class': 'form-group'}),
+            'species': forms.Select(attrs={'class': 'form-group'}),
+            'breed': forms.TextInput(attrs={'class': 'form-group'}),
+            'age': forms.NumberInput(attrs={'class': 'form-group', 'min': 0}),
+            'weight': forms.NumberInput(attrs={'class': 'form-group'}),
         }
         
-        labels = {
+        '''labels = {
             'name': "Name:",
             'species': "Species:",
             'breed': "Breed (optional):",
             'age': "Age:",
             'weight': "Weight (kg): ",
-        }
+        }'''
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

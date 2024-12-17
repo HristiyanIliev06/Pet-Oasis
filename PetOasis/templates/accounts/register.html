@@ -1,83 +1,92 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register - Pet Oasis</title>
-    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}" />
+  </head>
+  <body>
     <div class="main-container">
-        <div class="register-container">
-            <div class="logo">
-                <span class="logo-text logo-text-pet">PET</span>
-                <a href="{% url 'index' %}">
-                  <img src="{% static '/imagery/logo.png' %}" alt="Pet Oasis Logo">
-                  </a>
-                <span class="logo-text logo-text-oasis">OASIS</span>
-            </div>
+      <div class="register-container">
+        <div class="logo">
+          <span class="logo-text logo-text-pet">PET</span>
+          <a href="{% url 'index' %}">
+            <img src="{% static '/imagery/logo.png' %}" alt="Pet Oasis Logo" />
+          </a>
+          <span class="logo-text logo-text-oasis">OASIS</span>
+        </div>
 
-            <div class="register-form">
-                <h2>Register to Pet Oasis</h2>
-                
-                 <form method="POST" action ="{% url 'register' %}">
-                  {% csrf_token %}
-                  {{form}}
-                    <!--<div class="form-row">
+        <div class="register-form">
+          <h2>Register to Pet Oasis</h2>
+
+          <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %} <!--{{form}}-->
+            <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First name:</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            {{form.first_name}}
+                            <!--<input type="text" id="firstName" name="firstName" required>-->
                         </div>
                         
                         <div class="form-group">
                             <label for="lastName">Last name:</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                            {{form.last_name}}
+                            <!--<input type="text" id="lastName" name="lastName" required>-->
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="age">Age:</label>
-                        <input type="number" id="age" name="age" required min="18" max="100" placeholder="Enter your age">
+                        {{form.age}}
+                        <!--<input type="number" id="age" name="age" required min="18" max="100" placeholder="Enter your age">-->
                     </div>
 
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
+                        {{form.username}}
+                        <!--<input type="text" id="username" name="username" required>-->
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        {{form.email}}
+                        <!--<input type="email" id="email" name="email" required>-->
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        {{form.password1}}
+                        <!--<input type="password" id="password" name="password" required>-->
                     </div>
                     
                     <div class="form-group">
                         <label for="password">Confirm password:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    -->
+                        {{form.password2}}
+                        <!--<input type="password" id="password" name="password" required>-->
+                    
 
-                    <div class="form-group checkboxes">
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="terms" name="terms" required>
-                            <label for="terms">I agree to the Terms and Conditions</label>
-                        </div>
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="newsletter" name="newsletter">
-                            <label for="newsletter">Subscribe to newsletter</label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="sign-in-btn">REGISTER</button>
-
-                    <p class="login-link">Already having an account? <a href="login.html">Login</a></p>
-                </form>
+            <div class="form-group checkboxes">
+              <div class="checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required />
+                <label for="terms">I agree to the Terms and Conditions</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="newsletter" name="newsletter" />
+                <label for="newsletter">Subscribe to newsletter</label>
+              </div>
             </div>
+
+            <button type="submit" class="sign-in-btn">REGISTER</button>
+
+            <p class="login-link">
+              Already having an account?
+              <a href="{% url 'login' %}">Login</a>
+            </p>
+          </form>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

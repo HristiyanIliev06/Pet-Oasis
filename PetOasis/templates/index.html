@@ -21,7 +21,7 @@
         src="{{facility.outside_view}}"
         alt="{{facility.name}} Facility"
       />
-      <a href="{% url 'facility' city=facility.name %}">
+      <a href="{% url 'facility' city=facility.city %}">
       <button class="view-btn">View</button>
       </a>
       {% empty %} ...

@@ -13,7 +13,7 @@
     <div class="facility-card">
       <h3>{{facility.name}}</h3>
       <img
-        src="{{facility.outside_view}}"
+        src="{{facility.outside_view.url}}"
         alt="Pet Oasis {{facility.name}} Facility"
       />
       <a href="{% url 'facility' city=facility.city %}">

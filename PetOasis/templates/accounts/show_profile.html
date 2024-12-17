@@ -3,7 +3,7 @@
   <!-- Profile Header -->
   <div class="profile-header">
     <img
-      src="{{profile.account_picture}}"
+      src="{{profile.account_picture.url}}"
       alt="Profile Picture"
       class="profile-image"
     />
@@ -35,11 +35,12 @@
     <div class="pet-card">
       <i class="fas fa-dog pet-icon"></i>
       <h3 class="pet-name">{{pet.name}}</h3>
-      <p class="pet-type">Golden Retriever</p>
+      <p class="pet-type">{{pet.breed}}</p>
       <a href="{% url 'delete_pet' pk=pet.id %}" class="pet-link">
         <button class="delete-pet">Delete</button>
       </a>
     </div>
+    {% endfor %}
 
     <!-- Example Pet Card 
         <div class="pet-card">

@@ -1,150 +1,107 @@
-from django.contrib.auth import get_user_model, authenticate
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.core.validators import MinValueValidator
-from accounts.models import Profile
 
-"""class ProfileForm(forms.Form):
-    user_form = CombinedUserUpdateForm()
-    profile_form = UserProfileUpdateForm()"""
-    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+from accounts.models import Profile
 
 class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(
         max_length=30,
-        required = True
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'My first name is...'})
     )
     
     last_name = forms.CharField(
         max_length=30,
-        required = True,
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'My last name is...'})
     )
     
     age = forms.IntegerField(
-        required = True,
-        validators=[MinValueValidator(18,
-        message="Sorry! You are not mature enough to use our pet services!")]
+        required=True,
+        validators=[MinValueValidator(18, message="Sorry! You are not mature enough to use our pet services!")],
+        initial=18
     )
     
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
-        
-        fields = '__all__'
+        fields = ('username', 'email', 'first_name', 'last_name', 'age', 'password1', 'password2')
         
         widgets = {
-            'email': forms.EmailInput(),
-            'age': forms.NumberInput(),
+            'username': forms.TextInput(attrs={'placeholder': 'I prefer that you call me...'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'My email is...'}),
         }
         
         labels = {
+            'username': "Username:",
+            'email': "Email:",
             'first_name': "First name:",
             'last_name': "Last name:",
             'age': "Age:",
-            'username': "Username:",
-            'email': "Email:",
             'password1': 'Password:',
             'password2': 'Confirm password:'
-        }  
-        
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        
-        self.fields['first_name'].widget.attrs['placeholder'] = 'My first name is...'
-        self.fields['last_name'].widget.attrs['placeholder'] = 'My last name is...'
-        self.fields['username'].widget.attrs['placeholder'] = 'I prefer that you call me...'
-        self.fields['email'].widget.attrs['placeholder'] = 'My email is...'
-        self.fields['age'].initial = 18
-        
-        
-
-class EditAccountForm(UserChangeForm):
-    new_password = forms.CharField(
-        widget=forms.PasswordInput,
-        required=True)
-    
-    confirm_new_password = forms.CharField(
-        widget=forms.PasswordInput,
-        required=True)
-    
-    class Meta(UserChangeForm.Meta):        #MORE REALISTIC DESIGN IF THE TIME ALLOWS IT
-        model = get_user_model()
-        
-        fields = ('username', 'email', 'password',
-                  'new_password', 'confirm_new_password')
-        
-        widgets = {
-            'email': forms.EmailInput(),
         }
-        
-        labels = {
-            'username': "New username:",
-            'email': "new email:",
-            'password': 'Old password:',
-            'new_password': 'New password:',
-            'confirm_new_password': 'Confirm new password:'
-            }
+
+
+class EditAccountForm(forms.ModelForm):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField()
+    old_password = forms.CharField(widget=forms.PasswordInput, required=True)
+    new_password = forms.CharField(widget=forms.PasswordInput, required=False)
+    confirm_new_password = forms.CharField(widget=forms.PasswordInput, required=False)
+    
+    class Meta:
+        model = Profile
+        fields = ['username', 'email', 'old_password',
+                  'account_picture', 'new_password',
+                  'confirm_new_password']
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.initial = field
-        
+        if self.instance and self.instance.user:
+            self.fields['username'].initial = self.instance.user.username
+            self.fields['email'].initial = self.instance.user.email
             
     def clean(self):
         cleaned_data = super().clean()
-        password = cleaned_data.get("password")
-        new_password = cleaned_data.get("new_password")
-        confirm_new_password = cleaned_data.get("confirm_new_password")
-        username = cleaned_data.get("username")
-
-        if new_password != confirm_new_password:
+        new_password = cleaned_data.get('new_password')
+        confirm_new_password = cleaned_data.get('confirm_new_password')
+        
+        if new_password and new_password != confirm_new_password:
             raise forms.ValidationError("New passwords do not match.")
+            
+        return cleaned_data
+        
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get('old_password')
+        if not self.instance.user.check_password(old_password):
+            raise forms.ValidationError("Incorrect password.")
+        return old_password
 
-        # Check if the provided username and password match the logged-in user
-        user = authenticate(username=username, password=password)
-        if user is None:
-            raise forms.ValidationError("Incorrect username or password.")
-        
-        return cleaned_data    
-        
-        
-        
-class DeleteAccountForm(forms.ModelForm):
-    confirm_password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={'placeholder': 'Confirm your password'}),
-        required=True)
 
-    labels = {
-            'username': "Username:",
-            'password': 'Password:',
-            'confirm_password': 'Confirm password:'
-            }
+class DeleteAccountForm(forms.Form):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+        required=True
+    )
     
-    class Meta:
-        model = get_user_model()
-        fields = ('username', 'password', 'confirm_password')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['disabled'] = 'disabled'
-        self.fields['username'].widget.attrs['readonly'] = 'readonly'
-        self.fields['password'].widget.attrs['placeholder'] = 'Enter your current password'
-
-        
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter your current password'}),
+        required=True
+    )
+    
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}),
+        required=True
+    )
     
     def clean(self):
         cleaned_data = super().clean()
-        password = cleaned_data.get("password")
-        confirm_password = cleaned_data.get("confirm_password")
-        username = cleaned_data.get("username")
-
-        if password != confirm_password:
-            raise forms.ValidationError("Passwords do not match.")
-
-        # Check if the provided username and password match the logged-in user
-        user = authenticate(username=username, password=password)
-        if user is None:
-            raise forms.ValidationError("Incorrect username or password.")
+        password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
         
+        if password and confirm_password and password != confirm_password:
+            raise forms.ValidationError("Passwords do not match.")
+            
         return cleaned_data

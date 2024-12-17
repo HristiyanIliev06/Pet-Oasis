@@ -24,7 +24,9 @@
           <li><a href="{% url 'index' %}" class="active">Home</a></li>
           <li><a href="{% url 'facilities' %}">Facilities</a></li>
           <li>
-            <a href="{% url 'blog_and_news' %}" class="blog-link"> Blog & News </a>
+            <a href="{% url 'blog_and_news' %}" class="blog-link">
+              Blog & News
+            </a>
           </li>
           <li><a href="{% url 'about_us' %}">About Us</a></li>
         </ul>
@@ -42,10 +44,10 @@
         </a>
         {% elif profile.account_picture %}
         <a href="{% url 'show_profile' %}">
-        <img
-          src="{{profile.account_picture}}"
-          alt="Profile Picture"
-          class="profile-image"
+          <img
+            src="{{profile.account_picture.url}}"
+            alt="Profile Picture"
+            class="profile-image"
         /></a>
         {% else %}
         <a href="{% url 'show_profile' %}">
@@ -53,7 +55,7 @@
             src="{% static '/imagery/default_avatar.png' %}"
             alt="Profile Picture"
             class="profile-image"
-          /></a>
+        /></a>
         {% endif %}
       </div>
     </header>
@@ -125,5 +127,6 @@
         </div>
       </div>
     </footer>
+    <script src="{% static '/js/nav.js' %}"></script>
   </body>
 </html>
