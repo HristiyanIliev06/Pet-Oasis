@@ -1,0 +1,83 @@
+/* Custom styles for the admin interface */
+.field-get_profile_picture img {
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.field-get_profile_picture img:hover {
+    transform: scale(1.1);
+}
+
+/* Improve fieldset appearance */
+.module {
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Style the fieldset headers */
+h2.collapse-toggle {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Style the inline items */
+.inline-group {
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.inline-related {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+/* Style form rows */
+.form-row {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+/* Style buttons */
+.submit-row input {
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.submit-row input:hover {
+    opacity: 0.9;
+}
+
+/* Improve table appearance */
+#changelist table {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#changelist thead th {
+    background: #f8f9fa;
+}
+
+/* Style filters */
+#changelist-filter {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#changelist-filter h2 {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+}

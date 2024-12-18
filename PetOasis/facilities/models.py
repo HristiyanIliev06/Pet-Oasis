@@ -6,7 +6,7 @@ from core.validators import pet_hotel_and_shelter_name_validator as phsnv
 
 class PetHotel(models.Model):
     name = models.CharField(
-        max_length=20,
+        max_length=30,
         null = False,
         blank = False,
         unique = True,
@@ -14,7 +14,7 @@ class PetHotel(models.Model):
                     phsnv],)
     
     city = models.CharField(
-        max_length=12)
+        max_length=30)
     
     street = models.CharField(
         max_length = 30,
@@ -27,7 +27,10 @@ class PetHotel(models.Model):
         blank = False,
     )
     
-    outside_view = models.URLField()
+    outside_view = models.URLField(
+        null = True,
+        blank = True,
+    )
     
     phone = models.CharField(max_length=15)
     

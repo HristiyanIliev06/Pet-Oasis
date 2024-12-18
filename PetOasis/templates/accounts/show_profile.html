@@ -2,11 +2,19 @@
 <div class="profile-container">
   <!-- Profile Header -->
   <div class="profile-header">
+    {% if profile.account_picture %}
     <img
       src="{{profile.account_picture.url}}"
       alt="Profile Picture"
       class="profile-image"
     />
+    {% else %}
+    <img
+      src="{{profile.account_picture}}"
+      alt="Profile Picture"
+      class="profile-image"
+    />
+    {% endif %}
     <div class="profile-welcome">
       <h1>Hi, {{user.username}}! Welcome!</h1>
     </div>
@@ -76,13 +84,13 @@
   <div class="discount-cards">
     <div class="discount-card">
       <img
-        src="{% static '/imagery/discount-card1.jpg' %}"
+        src="{% static '/imagery/offers/Карта за намаления.png' %}"
         alt="10% Off Next Stay"
       />
     </div>
     <div class="discount-card">
       <img
-        src="{% static '/imagery/discount-card2.jpg' %}"
+        src="{% static '/imagery/offers/Отзад.png' %}"
         alt="Free Grooming Service"
       />
     </div>

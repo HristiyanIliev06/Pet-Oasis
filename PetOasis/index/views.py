@@ -15,7 +15,7 @@ def index(request):
     else:
         profile = None
     
-    top_3_facilities = PetHotel.objects.filter(id__lte=3)
+    top_3_facilities = PetHotel.objects.all()[0:3]   #filter(id__lte=3)
     
     pawposts = PawPost.objects.all()
     

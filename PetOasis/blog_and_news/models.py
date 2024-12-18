@@ -21,11 +21,11 @@ class PawPost(models.Model):
         blank=True,
     )
     
-    author = models.ForeignKey(
+    '''author = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
         null=True,
-        related_name='pawposts')
+        related_name='pawposts')'''
     
     
     def __str__(self):

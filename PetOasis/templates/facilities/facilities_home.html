@@ -2,8 +2,8 @@
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Explore our cozy hotels and shelters</h1>
-    <p>Hospitable and comforting environment</p>
+    <h1 class="fade-in">Explore our cozy hotels and shelters</h1>
+    <p class="fade-in-delay">Hospitable and comforting environment</p>
   </div>
 </section>
 
@@ -12,10 +12,7 @@
     {% for facility in facilities%}
     <div class="facility-card">
       <h3>{{facility.name}}</h3>
-      <img
-        src="{{facility.outside_view.url}}"
-        alt="Pet Oasis {{facility.name}} Facility"
-      />
+      <img src="{{facility.outside_view}}" alt="{{facility.name}} Facility" />
       <a href="{% url 'facility' city=facility.city %}">
         <button class="view-btn">View</button>
       </a>

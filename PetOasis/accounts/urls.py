@@ -1,5 +1,3 @@
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path, reverse_lazy
 from accounts import views
 from django.contrib.auth.views import LogoutView
@@ -12,8 +10,3 @@ urlpatterns = [
     path('edit/', views.UserEditView.as_view(), name = 'edit_profile'),
     path('delete/', views.DeleteAccountView.as_view(), name = 'delete_account'),
 ]
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
