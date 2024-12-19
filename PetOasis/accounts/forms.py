@@ -42,6 +42,10 @@ class UserRegisterForm(UserCreationForm):
             'password1': 'Password:',
             'password2': 'Confirm password:'
         }
+        
+       # help_text = {
+       #     'email': 'fds'
+       # }
 
 
 class EditAccountForm(forms.ModelForm):

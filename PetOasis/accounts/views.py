@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, TemplateView
 from accounts.forms import UserRegisterForm, EditAccountForm, DeleteAccountForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth import authenticate, login, logout #, get_user_model
 from accounts.models import Profile
 from pets.models import Pet
 

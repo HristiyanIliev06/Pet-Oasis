@@ -9,7 +9,7 @@ from accounts.managers import AppUserManager
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
-        unique=True
+        unique=True,
     )
 
     username = models.CharField(

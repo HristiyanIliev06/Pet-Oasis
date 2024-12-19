@@ -41,7 +41,20 @@
   <div class="pets-grid">
     {% for pet in pets%}
     <div class="pet-card">
-      <i class="fas fa-dog pet-icon"></i>
+      <!--<i class="fas fa-dog pet-icon"></i>-->
+      {% if pet.image %}
+    <img
+      src="{{pet.image.url}}"
+      alt="{{pet.species}}"
+      class="profile-image"
+    />
+    {% else %}
+    <img
+      src="{{pet.image}}"
+      alt="{{pet.species}}"
+      class="profile-image"
+    />
+    {% endif %}
       <h3 class="pet-name">{{pet.name}}</h3>
       <p class="pet-type">{{pet.breed}}</p>
       <a href="{% url 'delete_pet' pk=pet.id %}" class="pet-link">

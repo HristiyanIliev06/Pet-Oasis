@@ -17,7 +17,7 @@ def index(request):
     
     top_3_facilities = PetHotel.objects.all()[0:3]   #filter(id__lte=3)
     
-    pawposts = PawPost.objects.all()
+    pawposts = PawPost.objects.all()[0:7]
     
     context = {
         'user': current_user,

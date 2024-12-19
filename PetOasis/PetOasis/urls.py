@@ -27,4 +27,8 @@ urlpatterns = [
     path('your_pet/', include('pets.urls')),
     path('blog_&_news/', include('blog_and_news.urls')),
     path('about-us/', include('about_us.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
