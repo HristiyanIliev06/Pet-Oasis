@@ -74,6 +74,18 @@ Configuration lives in `PetOasis/.env` (never committed). At minimum set:
 
 Pages that list hotels need `PetHotel` rows; the admin does not expose them yet, so add some through `python manage.py shell` (verify).
 
+## Tests
+
+The suite uses an in-memory SQLite database, so no PostgreSQL privileges are needed:
+
+```bash
+cd PetOasis
+# Windows PowerShell: $env:DJANGO_SECRET_KEY="test"; $env:DB_ENGINE="django.db.backends.sqlite3"; $env:DB_NAME=":memory:"
+DJANGO_SECRET_KEY=test DB_ENGINE=django.db.backends.sqlite3 DB_NAME=:memory: python manage.py test
+```
+
+One test is marked `expectedFailure`: it documents a known bug in the hotel-name validator (`core/validators.py`), which rejects every name containing a space.
+
 ## Project structure
 
 ```
@@ -101,5 +113,5 @@ Work in progress, built as a learning/portfolio project.
 - Profile page contains placeholder content ("Your Offers", "Your Discount Cards", sample pets) (verify).
 - The `PawPost` create form/view is commented out; the Blog & News page is not driven by the database.
 - Register `PetHotel`, `Shelter` and `PawPost` in the admin.
-- Add automated tests and CI.
+- Fix the hotel-name validator bug and add CI for the test suite.
 - Replace the placeholder screenshot in `docs/home.png`.
