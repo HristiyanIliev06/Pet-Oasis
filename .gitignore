@@ -1,0 +1,23 @@
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets and local configuration
+.env
+
+# Local databases
+db.sqlite3
+
+# Generated / user-uploaded files
+staticfiles/
+media/
+
+# Editors
+.vscode/
+.idea/
