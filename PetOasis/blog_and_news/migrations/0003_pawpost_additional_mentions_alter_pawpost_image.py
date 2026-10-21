@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='pawpost',
             name='additional_mentions',
-            field=models.CharField(blank=True, null=True),
+            field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AlterField(
             model_name='pawpost',

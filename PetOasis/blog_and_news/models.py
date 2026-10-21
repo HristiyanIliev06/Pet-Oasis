@@ -17,6 +17,7 @@ class PawPost(models.Model):
     when_uploaded = models.DateTimeField(auto_now_add=True)
     
     additional_mentions = models.CharField(
+        max_length=255,
         null=True,
         blank=True,
     )

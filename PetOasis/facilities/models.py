@@ -65,6 +65,7 @@ class Shelter(models.Model):
         related_name='shelters')
     
     pet_section = models.CharField(
+        max_length=10,
         choices=PET_SECTIONS
     )
     

@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
             name='Shelter',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pet_section', models.CharField(choices=[('Dog', 'Dog'), ('Cat', 'Cat')])),
+                ('pet_section', models.CharField(choices=[('Dog', 'Dog'), ('Cat', 'Cat')], max_length=10)),
                 ('pethotel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='shelters', to='facilities.pethotel')),
             ],
         ),
