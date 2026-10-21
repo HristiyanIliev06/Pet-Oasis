@@ -1,0 +1,11 @@
+# Web framework
+Django==5.1.3
+
+# ImageField (profile pictures, pet photos, PawPost images) needs Pillow
+Pillow==11.0.0
+
+# PostgreSQL driver for the django.db.backends.postgresql engine
+psycopg2-binary==2.9.10
+
+# Loads PetOasis/.env into the environment (see settings.py)
+python-dotenv==1.2.4
