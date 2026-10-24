@@ -96,7 +96,7 @@
       {% for pawpost in pawposts%}
       <div class="feedback-card">
         <div class="pet-image">
-          <img src="{{ pawpost.image}}" alt="{{pawpost.title}}" />
+          <img src="{{ pawpost.image.url}}" alt="{{pawpost.title}}" />
         </div>
         <div class="speech-bubble">{{ pawpost.description}}</div>
         <div class="paw-rating">
