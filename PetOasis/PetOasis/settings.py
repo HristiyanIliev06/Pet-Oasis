@@ -91,14 +91,25 @@ CRISPY__TEMPLATE_PACK = "bootstrap4"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "pet_oasis_db",
+#         "USER": "postgres",
+#         "PASSWORD": "5578",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5578",
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "pet_oasis_db",
-        "USER": "postgres",
-        "PASSWORD": "5578",
-        "HOST": "127.0.0.1",
-        "PORT": "5578",
+        "NAME": os.environ.get("DB_NAME", "pet_oasis_db"),
+        "USER": os.environ.get("DB_USER", "petoasis"),
+        "PASSWORD": os.environ["DB_PASSWORD"],
+        "HOST": os.environ.get("DB_HOST", "127.0.0.1"),
+        "PORT": os.environ.get("DB_PORT", "5432"),
     }
 }
 
