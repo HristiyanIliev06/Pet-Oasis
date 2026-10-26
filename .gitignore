@@ -1,7 +1,13 @@
 venv/
 .venv/
+env/
 __pycache__/
 *.pyc
 .env
 db.sqlite3
+*.sqlite3
+staticfiles/
+media/
+.vscode/
+.DS_Store
 gunicorn.log
