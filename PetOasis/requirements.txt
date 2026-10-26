@@ -1,6 +1,0 @@
-Django>=5.2.8,<5.3
-django-crispy-forms>=2.3
-crispy-bootstrap4>=2024.10
-Pillow>=12.0
-psycopg2-binary>=2.9.11gunicorn
-gunicorn>=26.2.0
