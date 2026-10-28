@@ -1,20 +1,13 @@
-# Virtual environments
 venv/
 .venv/
 env/
-
-# Python
 __pycache__/
 *.pyc
-
-# Secrets and local data
 .env
+db.sqlite3
 *.sqlite3
-
-# Django
 staticfiles/
 media/
-
-# Editor / OS
 .vscode/
 .DS_Store
+gunicorn.log
