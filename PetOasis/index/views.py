@@ -11,7 +11,7 @@ def index(request):
     current_user = request.user
     
     if not isinstance(request.user, AnonymousUser):
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.filter(user=request.user).first()
     else:
         profile = None
     

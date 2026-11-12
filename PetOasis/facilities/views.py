@@ -8,7 +8,7 @@ def show_facilities_page(request):
     facilities = PetHotel.objects.all()
     
     if not isinstance(request.user, AnonymousUser):
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.filter(user=request.user).first()
     else:
         profile = None
     
@@ -24,7 +24,7 @@ def show_a_facility_page_by_selected_city(request, city:str):
     facility = PetHotel.objects.get(city = city or None)
     
     if not isinstance(request.user, AnonymousUser):
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.filter(user=request.user).first()
     else:
         profile = None
     

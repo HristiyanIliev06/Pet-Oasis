@@ -5,7 +5,7 @@ from django.contrib.auth.models import AnonymousUser
 def show_about_us_page(request):
 
     if not isinstance(request.user, AnonymousUser):
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.filter(user=request.user).first()
     else:
         profile = None
     
