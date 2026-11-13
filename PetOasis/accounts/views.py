@@ -47,8 +47,8 @@ class CustomLoginView(LoginView):
 #@login_required
 def show_profile(request):
     user = request.user
-    profile = Profile.objects.get(user=user)
-    pets = Pet.objects.filter(owner=user.profile)
+    profile = Profile.objects.filter(user=user).first()
+    pets = Pet.objects.filter(owner=profile) if profile else Pet.objects.none()
     
     context = {
         'user': user,
@@ -66,8 +66,12 @@ class UserEditView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('show_profile')
     
     def get_object(self, queryset=None):
-        return self.request.user.profile
-    
+        # Temporary: superusers created via createsuperuser have no Profile
+        profile, _ = Profile.objects.get_or_create(
+            user=self.request.user,
+            defaults={'first_name': '', 'last_name': '', 'age': 18},
+        )
+        return profile
     def form_valid(self, form):
         user = self.request.user
         profile = self.get_object()

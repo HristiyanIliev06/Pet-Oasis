@@ -11,7 +11,12 @@ class PetCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('show_profile')
 
     def form_valid(self, form):
-        form.instance.owner = self.request.user.profile
+        # Temporary: superusers created via createsuperuser have no Profile
+        profile, _ = Profile.objects.get_or_create(
+            user=self.request.user,
+            defaults={'first_name': '', 'last_name': '', 'age': 18},
+        )
+        form.instance.owner = profile
         return super().form_valid(form)
     
 class PetDeleteView(LoginRequiredMixin, DeleteView):
