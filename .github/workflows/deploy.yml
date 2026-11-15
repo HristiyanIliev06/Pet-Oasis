@@ -1,0 +1,31 @@
+name: Deploy PetOasis to Azure
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+cocurrency:
+  group: deply-production
+  cancel-in-progress: false
+
+env:
+  AZURE_WEBAPP_NAME: petoasis-hristiyan
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: action/checkout#v4
+
+      - name: Build deployment zip from the commit
+        run: git archive --format=zip -o "$RUNNER_TEMP/petoasis.zip"
+
+      - name: Check zip contents
+        run: |
+          unzip -Z1 ""
